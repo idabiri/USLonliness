@@ -573,15 +573,14 @@ chisq.test(svytable(~IS_LONELY + COMMFRI_IRL, design = weight)) # significant
 # ------------ Normality Checks for Multicollinearity ------------
 
 # Independence of variables
-# Install and load the car package if not already installed
 install.packages("car")
 library(car)
 
-# Fit a linear regression model
+# Linear regression model
 model <- lm(FEEL_LONELY ~ EMOSUPP_MOM + EMOSUPP_DAD + EMOSUPP_OTHFAM, data = atp_final)
 
-# Run the Durbin-Watson test
-durbinWatsonTest(model) # low signs of  autocorrelation
+# Durbin-Watson test
+durbinWatsonTest(model) # low signs of autocorrelation
 
-# Calculate VIF for the regression model
+# VIF for the regression model
 vif(model) # low-moderate correlation
